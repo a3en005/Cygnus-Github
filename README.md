@@ -1,12 +1,13 @@
-\# Cygnus-Github
+Cygnus Pacific Portal 
 
 
 
-Cygnus Pacifics search platform for individuals and companies in the US and Canada, using Supabase for authentication, search engine management, and analytics.
+ A Unified Search Platform
 
-
-
-\## Structure
+\- Individuals 
+\- Companies
+\- Invesmtent Advisory
+\- Foundations
 
 
 
