@@ -290,12 +290,14 @@ export default function Profile() {
                                   {log.search_query.firstName} {log.search_query.lastName}
                                   {log.search_query.city && ` in ${log.search_query.city}`}
                                   {log.search_query.state && `, ${log.search_query.state}`}
+                                  {log.search_query.address && ` (${log.search_query.address})`}
                                 </span>
                               )}
                               {log.search_type === "business" && log.search_query.businessName && (
                                 <span>
                                   {log.search_query.businessName}
                                   {log.search_query.businessState && ` in ${log.search_query.businessState}`}
+                                  {log.search_query.address && ` (${log.search_query.address})`}
                                 </span>
                               )}
                             </div>
