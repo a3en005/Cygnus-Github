@@ -2,7 +2,7 @@
 
 
 
-A Next.js 14+ SaaS search platform for individuals and companies in the US and Canada, using Supabase for authentication, search engine management, and analytics.
+Cygnus Pacifics search platform for individuals and companies in the US and Canada, using Supabase for authentication, search engine management, and analytics.
 
 
 
@@ -42,7 +42,7 @@ A Next.js 14+ SaaS search platform for individuals and companies in the US and C
 
 ```env
 
-NEXT\_PUBLIC\_SUPABASE\_URL=https://ldoulpoaxmfybaswdevr.supabase.co
+NEXT\_PUBLIC\_SUPABASE\_URL=(https://pckazwgsfttjmbpvjbdo.supabase.co
 
-NEXT\_PUBLIC\_SUPABASE\_ANON\_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxkb3VscG9heG1meWJhc3dkZXZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0MzUzMzQsImV4cCI6MjA2NzAxMTMzNH0.mL2WRwyWaUWG09K9nycdx7DQIzBGN5qZ0scdL57XVpw```
+NEXT\_PUBLIC\_SUPABASE\_ANON\_KEY=`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBja2F6d2dzZnR0am1icHZqYmRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzNDY0OTAsImV4cCI6MjA2NzkyMjQ5MH0.dE7XEgWGVyMvmCt10wIEaLngL3JT1zNsEFeMEh2n9Vk`
 
