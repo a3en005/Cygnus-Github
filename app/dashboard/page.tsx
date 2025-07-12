@@ -450,7 +450,7 @@ export default function Dashboard() {
             {/* Notes */}
             <div className="space-y-2">
               <Label htmlFor="address" className="text-white font-medium">
-                Address (Optional)
+                Street Address
               </Label>
               <Input
                 id="address"
