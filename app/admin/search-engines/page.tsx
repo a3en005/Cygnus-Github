@@ -59,7 +59,7 @@ export default function AdminSearchEnginesPage() {
     try {
       setLoading(true)
       const { data, error } = await supabase
-        .from("search_engines")
+        .from("search_engine_links")
         .select("*")
         .order("priority", { ascending: false })
         .order("source_name", { ascending: true })

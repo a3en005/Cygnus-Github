@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
 import {
   Search,
   ExternalLink,
@@ -68,7 +67,7 @@ export default function Dashboard() {
 
     // General fields
     country: "USA",
-    notes: "",
+    address: "",
   })
 
   const supabase = createClient()
@@ -80,7 +79,7 @@ export default function Dashboard() {
   const fetchSearchEngines = async () => {
     try {
       const { data, error } = await supabase
-        .from("search_engines")
+        .from("search_engine_links")
         .select("*")
         .eq("active", true)
         .order("priority", { ascending: false })
@@ -135,10 +134,12 @@ export default function Dashboard() {
       if (formData.lastName) params.append("last_name", formData.lastName)
       if (formData.city) params.append("city", formData.city)
       if (formData.state) params.append("state", formData.state)
+      if (formData.address) params.append("address", formData.address)
     } else if (searchType === "business") {
       if (formData.businessName) params.append("business_name", formData.businessName)
       if (formData.businessState) params.append("state", formData.businessState)
       if (formData.businessType) params.append("entity_type", formData.businessType)
+      if (formData.address) params.append("address", formData.address)
     }
 
     // For demo purposes, just return the base URL
@@ -182,7 +183,7 @@ export default function Dashboard() {
         await supabase.from("search_logs").insert({
           user_id: user.id,
           search_type: searchType,
-          search_query: formData,
+          search_query: { ...formData, address: formData.address },
           engines_used: relevantEngines.map((e) => e.source_name),
           results_count: results.length,
         })
@@ -210,7 +211,7 @@ export default function Dashboard() {
       businessState: "",
       businessType: "",
       country: "USA",
-      notes: "",
+      address: "",
     })
     setSearchResults([])
     setError("")
@@ -448,16 +449,15 @@ export default function Dashboard() {
 
             {/* Notes */}
             <div className="space-y-2">
-              <Label htmlFor="notes" className="text-white font-medium">
-                Notes (Optional)
+              <Label htmlFor="address" className="text-white font-medium">
+                Address (Optional)
               </Label>
-              <Textarea
-                id="notes"
-                value={formData.notes}
-                onChange={(e) => setFormData((prev) => ({ ...prev, notes: e.target.value }))}
-                className="bg-white/10 backdrop-blur-sm border-white/30 text-white placeholder:text-white/60 focus:border-white/50 focus:ring-white/20 resize-none"
-                placeholder="Add any additional search notes..."
-                rows={3}
+              <Input
+                id="address"
+                value={formData.address}
+                onChange={(e) => setFormData((prev) => ({ ...prev, address: e.target.value }))}
+                className="bg-white/10 backdrop-blur-sm border-white/30 text-white placeholder:text-white/60 focus:border-white/50 focus:ring-white/20"
+                placeholder="Enter address (street, city, state, zip)"
               />
             </div>
 

@@ -108,13 +108,13 @@ export function SearchEnginesAdmin({ searchEngines, onUpdate, loading }: SearchE
 
       if (editingEngine) {
         // Update existing engine
-        const { error } = await supabase.from("search_engines").update(engineData).eq("id", editingEngine.id)
+        const { error } = await supabase.from("search_engine_links").update(engineData).eq("id", editingEngine.id)
 
         if (error) throw error
         setSuccess("Search engine updated successfully")
       } else {
         // Create new engine
-        const { error } = await supabase.from("search_engines").insert([engineData])
+        const { error } = await supabase.from("search_engine_links").insert([engineData])
 
         if (error) throw error
         setSuccess("Search engine created successfully")
@@ -133,7 +133,7 @@ export function SearchEnginesAdmin({ searchEngines, onUpdate, loading }: SearchE
 
     try {
       setError("")
-      const { error } = await supabase.from("search_engines").delete().eq("id", id)
+      const { error } = await supabase.from("search_engine_links").delete().eq("id", id)
 
       if (error) throw error
       setSuccess("Search engine deleted successfully")
@@ -146,7 +146,7 @@ export function SearchEnginesAdmin({ searchEngines, onUpdate, loading }: SearchE
   const handleToggleActive = async (id: string, active: boolean) => {
     try {
       setError("")
-      const { error } = await supabase.from("search_engines").update({ active }).eq("id", id)
+      const { error } = await supabase.from("search_engine_links").update({ active }).eq("id", id)
 
       if (error) throw error
       onUpdate()
