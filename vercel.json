@@ -1,0 +1,13 @@
+{
+  "name": "CygnusPortal",
+  "version": 2,
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://portalcyg.vercel.app/"
+  },
+  "functions": {
+    "app/**/*.{js,ts,tsx}": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["iad1"]
+}
