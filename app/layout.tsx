@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     shortcut: "/images/icon.png",
     apple: "/images/icon.png",
   },
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
